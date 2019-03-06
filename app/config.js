@@ -55,6 +55,41 @@ export default (() => {
           },
         ]
       },
+      {
+        name: '数据报表',
+        icon: 'bar-chart',
+        key: 'report',
+        children:[
+          {
+            name: '能源',
+            icon: 'fund',
+            children:[
+              {
+                name:"按月",
+                key: '/report/energy/month',
+                url: '/report/energy/month',
+              },
+              {
+                name:"按周",
+                key: '/report/energy/week',
+                url: '/report/energy/week',
+              },
+              {
+                name:"按日",
+                key: '/report/energy/day',
+                url: '/report/energy/day',
+              },
+            ]
+          },
+          {
+            name: '环境',
+            icon: 'dot-chart',
+            key: '/report/ambience',
+            url: '/report/ambience',
+            authItem:'scada',
+          }
+        ]
+      },
       /* {
         name: '顶楼',
         icon: 'desktop',

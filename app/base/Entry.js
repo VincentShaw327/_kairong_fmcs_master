@@ -45,7 +45,8 @@ export default class TIndexPage extends React.Component {
             // siderTheme: false,
             // minHeight: 0,
             // maxHeight: 0,
-            maxHeight: innerHeight - 64,
+            // maxHeight: innerHeight - 64,
+            maxHeight: innerHeight - 16,
         }
     }
 
@@ -57,7 +58,7 @@ export default class TIndexPage extends React.Component {
             // console.log('e',e);
             // console.log("innerHeight",innerHeight);
             this.setState( {
-                maxHeight: innerHeight - 64,
+                maxHeight: innerHeight - 32,
                 // minHeight: innerHeight - 64,
             } )
         }
@@ -112,14 +113,13 @@ export default class TIndexPage extends React.Component {
                 {/* <THeader handleSearch={this._child} /> */}
                 <Layout>
                     <Nav {...this.props} />
-                    {/* <THeader /> */}
                     <Scrollbars
                       autoHide
                       autoHideTimeout={1000}
                       autoHideDuration={200}
                       autoHeight
                       autoHeightMin={500}
-                      // autoHeightMax={560}
+                    //   autoHeightMax={560}
                       autoHeightMax={this.state.maxHeight}
                       thumbMinSize={30}
                       universal

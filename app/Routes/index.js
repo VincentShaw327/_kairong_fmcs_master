@@ -8,7 +8,7 @@ import * as scada from './scada'
 // import * as mtrlloss from './mtrlloss'
 // import * as quality from './quality'
 // import * as maintain from './maintain'
-// import * as report from './report'
+import * as report from './report'
 // import * as setting from './setting'
 import * as demos from './demos'
 
@@ -26,13 +26,13 @@ export default Object.assign(
     // materials,
     // device,
     // procession,
-    // report,
     // work,
     // mtrlloss,
     // quality,
     // maintain,
     // setting,
-    scada,
     { Home },
     demos,
+    scada,
+    report,
 )
