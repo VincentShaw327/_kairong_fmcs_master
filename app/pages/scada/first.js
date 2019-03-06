@@ -1,11 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { Card, Button, Icon, Tag, Row, Col, message, Divider, Popconfirm } from 'antd';
-import { device_type_list, device_type_add, device_type_update, device_type_delete } from 'actions/device'
-import { TPostData } from 'utils/TAjax';
-import SimpleTable from 'components/TTable/SimpleTable';
-// import { CreateModal, UpdateModal } from 'components/TModal';
-import { fn_mes_trans } from 'functions'
 /* import {
     G2,
     Chart,
@@ -47,32 +42,31 @@ export default class type extends Component {
         this.url = '/api/TDevice/device_type';
     }
 
-    componentWillMount() {
-        // this.getTableList();
-        const filter = {
-            // strCategoryName: 'test',
-        }
-        // this.props.dispatch( device_type_list( fn_mes_trans.toFilter( filter ), ( respose ) => {} ) )
-    }
+    componentWillMount() {}
 
-    componentDidMount() {
-        const { pageSize, current } = this.state;
-        const page = { page: current, size: pageSize }
-        const { list } = this.props.deviceType;
-        /* if ( Array.isArray( list ) && list.length === 0 ) {
-            this.props.dispatch( device_type_list( page, ( respose ) => {} ) )
-            // console.log( '...请求list...' );
-        } */
-    }
+    componentDidMount() {}
 
     render() {
-        const {
-            current,
-            // total,
-            pageSize,
-        } = this.state;
-        const { list, total, loading } = this.props.deviceType;
-
+        const Milieu = ( obj ) => {
+            const { title = '车间名称', temp = 23.4, rh = 12 } = obj
+            return (
+                <Fragment>
+                    <span className={styles.title}>{title}</span>
+                    <div className={styles.parameter}>
+                        <div>
+                            <IconFont className={styles.icon} type="icon-wendu" />
+                            <span className={styles.num}>{temp}</span>
+                            <span className={styles.unit}>℃</span>
+                        </div>
+                        <div>
+                            <IconFont className={styles.icon} type="icon-humidity" />
+                            <span className={styles.num}>{rh}</span>
+                            <span className={styles.unit}>RH%</span>
+                        </div>
+                    </div>
+                </Fragment>
+            )
+        };
         return (
             // <PageHeaderLayout
             //   wrapperClassName="pageContent"
@@ -138,105 +132,132 @@ export default class type extends Component {
                     <Col span={13}><div className={styles.umbrellarroom} /></Col>
                 </Row>
             </div> */}
-            <p color="#108ee9" style={{ marginBottom: 15, fontSize: 25, color: '#1890ff' }}>车间环境</p>
-            <div className={styles.firstfloor}>
-                <div className={styles.one}>
-                    <div className={styles.empty} />
-                    <div className={styles.cleanroom} >
-                        <span className={styles.title}>清洗机房</span>
-                        <div className={styles.parameter}>
-                            <div>
-                                <IconFont className={styles.icon} type="icon-wendu" />
-                                <span className={styles.num}>26</span>
-                                <span className={styles.unit}>℃</span>
+            <Card style={{ marginBottom: 18 }}>
+                <p color="#108ee9" style={{ marginBottom: 15, fontSize: 25, color: '#1890ff' }}>车间环境</p>
+                <div className={styles.firstfloor}>
+                    <div className={styles.one}>
+                        <div className={styles.empty} />
+                        <div className={styles.cleanroom} >
+                            <span className={styles.title}>清洗机房</span>
+                            <div className={styles.parameter}>
+                                <div>
+                                    <IconFont className={styles.icon} type="icon-wendu" />
+                                    <span className={styles.num}>26</span>
+                                    <span className={styles.unit}>℃</span>
+                                </div>
+                                <div>
+                                    <IconFont className={styles.icon} type="icon-humidity" />
+                                    <span className={styles.num}>15</span>
+                                    <span className={styles.unit}>RH%</span>
+                                </div>
                             </div>
-                            <div>
-                                <IconFont className={styles.icon} type="icon-humidity" />
-                                <span className={styles.num}>15</span>
-                                <span className={styles.unit}>RH%</span>
+                        </div>
+                        <div className={styles.coatingroom} >
+                            <span className={styles.title}>光驰镀膜机房</span>
+                            <div className={styles.parameter}>
+                                <div>
+                                    <IconFont className={styles.icon} type="icon-wendu" />
+                                    <span className={styles.num}>26</span>
+                                    <span className={styles.unit}>℃</span>
+                                </div>
+                                <div>
+                                    <IconFont className={styles.icon} type="icon-humidity" />
+                                    <span className={styles.num}>15</span>
+                                    <span className={styles.unit}>RH%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={styles.officeroom} >
+                            <span className={styles.title}>办公区</span>
+                            <div className={styles.parameter}>
+                                <div>
+                                    <IconFont className={styles.icon} type="icon-wendu" />
+                                    <span className={styles.num}>26</span>
+                                    <span className={styles.unit}>℃</span>
+                                </div>
+                                <div>
+                                    <IconFont className={styles.icon} type="icon-humidity" />
+                                    <span className={styles.num}>15</span>
+                                    <span className={styles.unit}>RH%</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div className={styles.coatingroom} >
-                        <span className={styles.title}>光驰镀膜机房</span>
-                        <div className={styles.parameter}>
-                            <div>
-                                <IconFont className={styles.icon} type="icon-wendu" />
-                                <span className={styles.num}>26</span>
-                                <span className={styles.unit}>℃</span>
+                    <div className={styles.two}>
+                        <div className={styles.empty} />
+                        <div className={styles.lockerroom} >
+                            <span className={styles.title}>更衣室</span>
+                            <div className={styles.parameter}>
+                                <div>
+                                    <IconFont className={styles.icon} type="icon-wendu" />
+                                    <span className={styles.num}>26</span>
+                                    <span className={styles.unit}>℃</span>
+                                </div>
+                                <div>
+                                    <IconFont className={styles.icon} type="icon-humidity" />
+                                    <span className={styles.num}>15</span>
+                                    <span className={styles.unit}>RH%</span>
+                                </div>
                             </div>
-                            <div>
-                                <IconFont className={styles.icon} type="icon-humidity" />
-                                <span className={styles.num}>15</span>
-                                <span className={styles.unit}>RH%</span>
+                        </div>
+                        <div className={styles.umbrellarroom}>
+                            <span className={styles.divider} />
+                            <span className={styles.title1} >光驰镀膜室</span>
+                            <span className={styles.title2} >换伞区</span>
+                            <div className={styles.parameter}>
+                                <div>
+                                    <IconFont className={styles.icon} type="icon-wendu" />
+                                    <span className={styles.num}>26</span>
+                                    <span className={styles.unit}>℃</span>
+                                </div>
+                                <div>
+                                    <IconFont className={styles.icon} type="icon-humidity" />
+                                    <span className={styles.num}>15</span>
+                                    <span className={styles.unit}>RH%</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div className={styles.officeroom} >
-                        <span className={styles.title}>办公区</span>
-                        <div className={styles.parameter}>
-                            <div>
-                                <IconFont className={styles.icon} type="icon-wendu" />
-                                <span className={styles.num}>26</span>
-                                <span className={styles.unit}>℃</span>
+                    <div className={styles.three}>
+                        <div className={styles.left} >
+                            <div className={styles.up} >
+                                <span className={styles.title}>镀膜房</span>
+                                <div className={styles.parameter}>
+                                    <div>
+                                        <IconFont className={styles.icon} type="icon-wendu" />
+                                        <span className={styles.num}>26</span>
+                                        <span className={styles.unit}>℃</span>
+                                    </div>
+                                    <div>
+                                        <IconFont className={styles.icon} type="icon-humidity" />
+                                        <span className={styles.num}>15</span>
+                                        <span className={styles.unit}>RH%</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <IconFont className={styles.icon} type="icon-humidity" />
-                                <span className={styles.num}>15</span>
-                                <span className={styles.unit}>RH%</span>
+                            <div className={styles.down} >
+                                <Milieu title="DLC机房" />
+                            </div>
+                        </div>
+                        <div className={styles.right} >
+                            <div className={styles.RLeft} >
+                                <div className={styles.up} >
+                                    <Milieu title="更衣室" />
+                                </div>
+                                <div className={styles.down} >
+                                    <Milieu title="辅机" />
+                                </div>
+                            </div>
+                            <div className={styles.RCenter}>
+                                <Milieu title="研磨设备" />
+                            </div>
+                            <div className={styles.RRight} >
+                                <Milieu title="辅机" />
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className={styles.two}>
-                    <div className={styles.empty} />
-                    <div className={styles.lockerroom} >
-                        <span className={styles.title}>更衣室</span>
-                        <div className={styles.parameter}>
-                            <div>
-                                <IconFont className={styles.icon} type="icon-wendu" />
-                                <span className={styles.num}>26</span>
-                                <span className={styles.unit}>℃</span>
-                            </div>
-                            <div>
-                                <IconFont className={styles.icon} type="icon-humidity" />
-                                <span className={styles.num}>15</span>
-                                <span className={styles.unit}>RH%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={styles.umbrellarroom}>
-                        <span className={styles.divider} />
-                        <span className={styles.title1} >光驰镀膜室</span>
-                        <span className={styles.title2} >换伞区</span>
-                        <div className={styles.parameter}>
-                            <div>
-                                <IconFont className={styles.icon} type="icon-wendu" />
-                                <span className={styles.num}>26</span>
-                                <span className={styles.unit}>℃</span>
-                            </div>
-                            <div>
-                                <IconFont className={styles.icon} type="icon-humidity" />
-                                <span className={styles.num}>15</span>
-                                <span className={styles.unit}>RH%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className={styles.three}>
-                    <div className={styles.left} >
-                        <div className={styles.up} />
-                        <div className={styles.down} />
-                    </div>
-                    <div className={styles.right} >
-                        <div className={styles.RLeft} >
-                            <div className={styles.up} />
-                            <div className={styles.down} />
-                        </div>
-                        <div className={styles.RRight} />
-                    </div>
-                </div>
-            </div>
+            </Card>
             {/* <Row gutter={16} style={{ marginBottom: 18 }}>
                 <Col span={12}>
                     <Card title="生产设备总开关箱01">
@@ -405,35 +426,35 @@ export default class type extends Component {
                     </Card>
                 </Col>
                 <Col span={12}>
-                <Card>
-                    <p style={{ marginBottom: 15, fontSize: 25, color: '#1890ff' }}>FFU控制柜</p>
-                    <Card style={{ textAlign: 'center' }}>
-                        <p style={{ fontSize: 36 }}>FFU风机运行状态</p>
-                        <Row>
-                            <Col span={11}>
-                                <p style={{ fontSize: 26 }}>风机一</p>
-                                <div style={{ fontSize: 26 }}>FFU-01</div>
-                                <div style={{ fontSize: 18 }}>型号</div>
-                                <span style={{
-                                    fontSize: 18, padding: 6, display: 'inline-block', color: 'white', marginTop: 15, background: '#00A43E', borderRadius: 8,
-                                    }}
-                                >运行中
-                                </span>
-                            </Col>
-                            <Col span={2}><Divider type="vertical" style={{ height: 180 }} /></Col>
-                            <Col span={11}>
-                                <p style={{ fontSize: 26 }}>风机二</p>
-                                <div style={{ fontSize: 26 }}>FFU-02</div>
-                                <div style={{ fontSize: 18 }}>型号</div>
-                                <span style={{
-                                    fontSize: 18, padding: 6, display: 'inline-block', color: 'white', marginTop: 15, background: '#b8b8b8', borderRadius: 8,
-                                    }}
-                                >停机中
-                                </span>
-                            </Col>
-                        </Row>
+                    <Card style={{ height: 480 }}>
+                        <p style={{ marginBottom: 15, fontSize: 25, color: '#1890ff' }}>FFU控制柜</p>
+                        <Card style={{ textAlign: 'center' }}>
+                            <p style={{ fontSize: 36 }}>FFU风机运行状态</p>
+                            <Row>
+                                <Col span={11}>
+                                    <p style={{ fontSize: 26 }}>风机一</p>
+                                    <div style={{ fontSize: 62 }}>FFU-01</div>
+                                    <div style={{ fontSize: 18 }}>型号</div>
+                                    <span style={{
+                                        fontSize: 18, padding: 6, display: 'inline-block', color: 'white', marginTop: 15, background: '#00A43E', borderRadius: 8,
+                                        }}
+                                    >运行中
+                                    </span>
+                                </Col>
+                                <Col span={2}><Divider type="vertical" style={{ height: 180 }} /></Col>
+                                <Col span={11}>
+                                    <p style={{ fontSize: 26 }}>风机二</p>
+                                    <div style={{ fontSize: 62 }}>FFU-02</div>
+                                    <div style={{ fontSize: 18 }}>型号</div>
+                                    <span style={{
+                                        fontSize: 18, padding: 6, display: 'inline-block', color: 'white', marginTop: 15, background: '#b8b8b8', borderRadius: 8,
+                                        }}
+                                    >停机中
+                                    </span>
+                                </Col>
+                            </Row>
+                        </Card>
                     </Card>
-                </Card>
                 </Col>
             </Row>
 
