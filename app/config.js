@@ -87,6 +87,23 @@ export default (() => {
             key: '/report/ambience',
             url: '/report/ambience',
             authItem:'scada',
+            children:[
+              {
+                name:"一楼",
+                key: '/report/ambience/first',
+                url: '/report/ambience/first',
+              },
+              {
+                name:"二楼",
+                key: '/report/ambience/second',
+                url: '/report/ambience/second',
+              },
+              {
+                name:"三楼",
+                key: '/report/ambience/third',
+                url: '/report/ambience/third',
+              },
+            ]
           }
         ]
       },
