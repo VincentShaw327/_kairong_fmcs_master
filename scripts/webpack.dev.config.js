@@ -1,25 +1,25 @@
 
-const path = require('path')
-const webpack = require('webpack')
-const merge = require('webpack-merge')
-const webpackConfigBase = require('./webpack.base.config')
-const OpenBrowserPlugin = require('open-browser-webpack-plugin')
+const path = require( 'path' )
+const webpack = require( 'webpack' )
+const merge = require( 'webpack-merge' )
+const webpackConfigBase = require( './webpack.base.config' )
+const OpenBrowserPlugin = require( 'open-browser-webpack-plugin' )
 
 const PORT = 3016
-function resolve(relatedPath) {
-  return path.join(__dirname, relatedPath)
+function resolve( relatedPath ) {
+  return path.join( __dirname, relatedPath )
 }
 const webpackConfigDev = {
   mode: 'development',
   plugins: [
-    new OpenBrowserPlugin({
+    new OpenBrowserPlugin( {
       // url: `http://localhost:${PORT}/#/login`,
       url: `http://localhost:${PORT}/#/`,
-    }),
-    new webpack.HotModuleReplacementPlugin({
+    } ),
+    new webpack.HotModuleReplacementPlugin( {
       // Options...
       // multiStep:true
-    })
+    } ),
   ],
   // devtool: 'source-map',
   // devtool: 'inline-source-map',
@@ -33,4 +33,4 @@ const webpackConfigDev = {
   },
 }
 
-module.exports = merge(webpackConfigBase, webpackConfigDev)
+module.exports = merge( webpackConfigBase, webpackConfigDev )

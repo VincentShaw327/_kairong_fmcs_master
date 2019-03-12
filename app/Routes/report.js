@@ -32,3 +32,8 @@ export const ab_t_report = {
     path: '/report/ambience/third',
     component: () => import( /* webpackChunkName: "ab_t_report" */ '../pages/report/ambience/third' ),
 }
+
+export const dev_err_report = {
+    path: '/report/error',
+    component: () => import( /* webpackChunkName: "dev_err_report" */ '../pages/report/error' ),
+}
