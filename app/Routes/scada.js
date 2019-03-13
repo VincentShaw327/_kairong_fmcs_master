@@ -22,4 +22,10 @@ export const topFloor = {
     path: '/scada/energy',
     component: props => import( /* webpackChunkName: "energy" */'../pages/scada/energy' ),
 }
+export const deviceState = {
+    path: '/scada/device',
+    component: props => import( /* webpackChunkName: "device" */'../pages/scada/device' ),
+}
+
+
 export default TWorkshopScada;
