@@ -137,8 +137,8 @@ export default class type extends Component {
                 <div className={styles.firstfloor}>
                     <div className={styles.one}>
                         <div className={styles.empty} />
-                        <div className={styles.cleanroom} >
-                            <span className={styles.title}>清洗机房</span>
+                        <div className={styles.cleanroom} ><Milieu title="清洗机房" />
+                            {/* <span className={styles.title}>清洗机房</span>
                             <div className={styles.parameter}>
                                 <div>
                                     <IconFont className={styles.icon} type="icon-wendu" />
@@ -150,55 +150,19 @@ export default class type extends Component {
                                     <span className={styles.num}>15</span>
                                     <span className={styles.unit}>RH%</span>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                         <div className={styles.coatingroom} >
-                            <span className={styles.title}>光驰镀膜机房</span>
-                            <div className={styles.parameter}>
-                                <div>
-                                    <IconFont className={styles.icon} type="icon-wendu" />
-                                    <span className={styles.num}>26</span>
-                                    <span className={styles.unit}>℃</span>
-                                </div>
-                                <div>
-                                    <IconFont className={styles.icon} type="icon-humidity" />
-                                    <span className={styles.num}>15</span>
-                                    <span className={styles.unit}>RH%</span>
-                                </div>
-                            </div>
+                            <Milieu title="光驰镀膜机房" />
                         </div>
                         <div className={styles.officeroom} >
-                            <span className={styles.title}>办公区</span>
-                            <div className={styles.parameter}>
-                                <div>
-                                    <IconFont className={styles.icon} type="icon-wendu" />
-                                    <span className={styles.num}>26</span>
-                                    <span className={styles.unit}>℃</span>
-                                </div>
-                                <div>
-                                    <IconFont className={styles.icon} type="icon-humidity" />
-                                    <span className={styles.num}>15</span>
-                                    <span className={styles.unit}>RH%</span>
-                                </div>
-                            </div>
+                            <Milieu title="办公区" />
                         </div>
                     </div>
                     <div className={styles.two}>
                         <div className={styles.empty} />
                         <div className={styles.lockerroom} >
-                            <span className={styles.title}>更衣室</span>
-                            <div className={styles.parameter}>
-                                <div>
-                                    <IconFont className={styles.icon} type="icon-wendu" />
-                                    <span className={styles.num}>26</span>
-                                    <span className={styles.unit}>℃</span>
-                                </div>
-                                <div>
-                                    <IconFont className={styles.icon} type="icon-humidity" />
-                                    <span className={styles.num}>15</span>
-                                    <span className={styles.unit}>RH%</span>
-                                </div>
-                            </div>
+                            <Milieu title="更衣室" />
                         </div>
                         <div className={styles.umbrellarroom}>
                             <span className={styles.divider} />
@@ -221,19 +185,7 @@ export default class type extends Component {
                     <div className={styles.three}>
                         <div className={styles.left} >
                             <div className={styles.up} >
-                                <span className={styles.title}>镀膜房</span>
-                                <div className={styles.parameter}>
-                                    <div>
-                                        <IconFont className={styles.icon} type="icon-wendu" />
-                                        <span className={styles.num}>26</span>
-                                        <span className={styles.unit}>℃</span>
-                                    </div>
-                                    <div>
-                                        <IconFont className={styles.icon} type="icon-humidity" />
-                                        <span className={styles.num}>15</span>
-                                        <span className={styles.unit}>RH%</span>
-                                    </div>
-                                </div>
+                                <Milieu title="镀膜房" />
                             </div>
                             <div className={styles.down} >
                                 <Milieu title="DLC机房" />
