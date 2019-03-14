@@ -231,8 +231,204 @@ export default class type extends Component {
                         </Col>
                     </Row>
                 </TabPane>
-                <TabPane tab="二楼" key="2">Content of Tab Pane 2</TabPane>
-                <TabPane tab="三楼" key="3">Content of Tab Pane 3</TabPane>
+                <TabPane tab="二楼" key="2">
+                    <Card style={{ marginBottom: 18, textAlign: 'center' }}>
+                        <p style={{ marginBottom: 15, fontSize: 25, color: '#1890ff' }}>风柜状态</p>
+                        <Row>
+                            <Col span={5}>
+                                <p style={{ fontSize: 26 }}>风柜一</p>
+                                <p><span style={{
+                                        padding: 6,
+                                        background: '#1890ff',
+                                        color: 'white',
+                                        borderRadius: 6,
+                                        fontSize: 18,
+                                    }}
+                                >运行中
+                                   </span>
+                                </p>
+                            </Col>
+                            <Col span={1}><Divider type="vertical" style={{ height: 45 }} /></Col>
+                            <Col span={5}>
+                                <p style={{ fontSize: 26 }}>风柜二</p>
+                                <p><span style={{
+                                        padding: 6,
+                                        background: '#b8b8b8',
+                                        color: 'white',
+                                        borderRadius: 6,
+                                        fontSize: 18,
+                                    }}
+                                >离线中
+                                   </span>
+                                </p>
+                            </Col>
+                            <Col span={1}><Divider type="vertical" style={{ height: 45 }} /></Col>
+                            <Col span={5}>
+                                <p style={{ fontSize: 26 }}>风柜三</p>
+                                <p><span style={{
+                                        padding: 6,
+                                        background: '#EE1F1F',
+                                        color: 'white',
+                                        borderRadius: 6,
+                                        fontSize: 18,
+                                    }}
+                                >故障中
+                                   </span>
+                                </p>
+                            </Col>
+                            <Col span={1}><Divider type="vertical" style={{ height: 45 }} /></Col>
+                            <Col span={5}>
+                                <p style={{ fontSize: 26 }}>风柜四</p>
+                                <p><span style={{
+                                        padding: 6,
+                                        background: '#9A9A9A',
+                                        color: 'white',
+                                        borderRadius: 6,
+                                        fontSize: 18,
+                                    }}
+                                >离线中
+                                   </span>
+                                </p>
+                            </Col>
+                        </Row>
+                    </Card>
+                </TabPane>
+                <TabPane tab="三楼" key="3">
+                    <Card style={{ marginBottom: 18, height: '17vw' }}>
+                            <p style={{ marginBottom: 25, fontSize: 25, color: '#1890ff' }}>风柜状态</p>
+                            <Row>
+                                <Col span={11} style={{ textAlign: 'center' }}>
+                                    <div style={{ marginBottom: 25, fontSize: 32 }}>一号机</div>
+                                    <Row>
+                                        <Col span={11}>
+                                            <p style={{ fontSize: 26 }}>风柜一</p>
+                                            <p><span style={{
+                                                    padding: 6,
+                                                    background: '#1890ff',
+                                                    color: 'white',
+                                                    borderRadius: 6,
+                                                    fontSize: 18,
+                                                }}
+                                            >运行中
+                                               </span>
+                                            </p>
+                                        </Col>
+                                        <Col span={2}><Divider type="vertical" style={{ height: 45 }} /></Col>
+                                        <Col span={11}>
+                                            <p style={{ fontSize: 26 }}>风柜二</p>
+                                            {/* <p><Tag color="orange" >运行中</Tag></p> */}
+                                            <p>
+                                                <span style={{
+                                                    padding: 6,
+                                                    background: '#1890ff',
+                                                    color: 'white',
+                                                    borderRadius: 6,
+                                                    fontSize: 18,
+                                                }}
+                                                >运行中
+                                                </span>
+                                            </p>
+                                        </Col>
+                                    </Row>
+                                </Col>
+                                <Col span={2}>
+                                    <Divider type="vertical" style={{ height: 120 }} />
+                                </Col>
+                                <Col span={11} style={{ textAlign: 'center' }}>
+                                    <div style={{ marginBottom: 25, fontSize: 32 }}>二号机</div>
+                                    <Row>
+                                        <Col span={11}>
+                                            <p style={{ fontSize: 26 }}>风柜一</p>
+                                            <p><span style={{
+                                                    padding: 6,
+                                                    background: '#1890ff',
+                                                    color: 'white',
+                                                    borderRadius: 6,
+                                                    fontSize: 18,
+                                                }}
+                                            >运行中
+                                               </span>
+                                            </p>
+                                        </Col>
+                                        <Col span={2}><Divider type="vertical" style={{ height: 45 }} /></Col>
+                                        <Col span={11}>
+                                            <p style={{ fontSize: 26 }}>风柜二</p>
+                                            <p><span style={{
+                                                    padding: 6,
+                                                    background: '#b8b8b8',
+                                                    color: 'white',
+                                                    borderRadius: 6,
+                                                    fontSize: 18,
+                                                }}
+                                            >离线中
+                                               </span>
+                                            </p>
+                                        </Col>
+                                    </Row>
+                                </Col>
+                            </Row>
+                    </Card>
+                    <Card>
+                        <p style={{ marginBottom: 15, fontSize: 25, color: '#1890ff' }}>板换房水泵状态</p>
+                        <Card style={{ textAlign: 'center' }}>
+                            <Row>
+                                <Col span={11}>
+                                    <p style={{ fontSize: 32 }}>一号柜</p>
+                                    <Row>
+                                        <Col span={11}>
+                                            <p style={{ fontSize: 25 }}>水泵一</p>
+                                            <div style={{ fontSize: 48, color: '#FF7928' }}>25 <span style={{ fontSize: 25 }}>℃</span></div>
+                                            <div style={{ fontSize: 18 }}>送水温度</div>
+                                            <span style={{
+                                                fontSize: 18, padding: 6, display: 'inline-block', color: 'white', marginTop: 15, background: '#00A43E', borderRadius: 8,
+                                                }}
+                                            >运行中
+                                            </span>
+                                        </Col>
+                                        <Col span={2}><Divider type="vertical" style={{ height: 230 }} /></Col>
+                                        <Col span={11}>
+                                            <p style={{ fontSize: 25 }}>水泵二</p>
+                                            <div style={{ fontSize: 48, color: '#FF7928' }}>25 <span style={{ fontSize: 25 }}>℃</span></div>
+                                            <div style={{ fontSize: 18 }}>送水温度</div>
+                                            <span style={{
+                                                fontSize: 18, padding: 6, display: 'inline-block', color: 'white', marginTop: 15, background: '#b8b8b8', borderRadius: 8,
+                                                }}
+                                            >运行中
+                                            </span>
+                                        </Col>
+                                    </Row>
+                                </Col>
+                                <Col span={2}><Divider type="vertical" style={{ height: 230 }} /></Col>
+                                <Col span={11}>
+                                <p style={{ fontSize: 32 }}>二号柜</p>
+                                    <Row>
+                                        <Col span={11}>
+                                            <p style={{ fontSize: 25 }}>水泵一</p>
+                                            <div style={{ fontSize: 48, color: '#FF7928' }}>25 <span style={{ fontSize: 25 }}>℃</span></div>
+                                            <div style={{ fontSize: 18 }}>送水温度</div>
+                                            <span style={{
+                                                fontSize: 18, padding: 6, display: 'inline-block', color: 'white', marginTop: 15, background: '#00A43E', borderRadius: 8,
+                                                }}
+                                            >运行中
+                                            </span>
+                                        </Col>
+                                        <Col span={2}><Divider type="vertical" style={{ height: 230 }} /></Col>
+                                        <Col span={11}>
+                                            <p style={{ fontSize: 25 }}>水泵二</p>
+                                            <div style={{ fontSize: 48, color: '#FF7928' }}>25 <span style={{ fontSize: 25 }}>℃</span></div>
+                                            <div style={{ fontSize: 18 }}>送水温度</div>
+                                            <span style={{
+                                                fontSize: 18, padding: 6, display: 'inline-block', color: 'white', marginTop: 15, background: '#b8b8b8', borderRadius: 8,
+                                                }}
+                                            >运行中
+                                            </span>
+                                        </Col>
+                                    </Row>
+                                </Col>
+                            </Row>
+                        </Card>
+                    </Card>
+                </TabPane>
                 </Tabs>
             </Card>
             {/* <Row gutter={16} style={{ marginBottom: 18 }}>
