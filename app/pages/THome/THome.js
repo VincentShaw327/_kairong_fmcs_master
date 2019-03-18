@@ -2,10 +2,12 @@ import React, { Component, Fragment } from 'react';
 import {
     Tooltip,
     Icon,
+    Button,
     Row,
     Col,
     Card,
     Table,
+    Divider, Tag,
 } from 'antd';
 import PageHeaderLayout from '../../base/PageHeaderLayout';
 import mqtt from 'mqtt';
@@ -26,12 +28,84 @@ export default class Home extends Component {
     }
 
     render() {
-        const bcList = [
-            {
-                title: '首页',
-                href: '/',
+        const columns = [{
+            title: '名称',
+            dataIndex: 'name',
+            key: 'name',
+            // render: text => <a href="javascript:;">{text}</a>,
+          }, {
+            title: '状态',
+            dataIndex: 'state',
+            key: 'state',
+            render: ( text ) => {
+                const num = Math.ceil( Math.random() * 5 )
+                // const txt = num === 1 ? '待机中' : num === 2 ? '运行中' : num === 3 ? '故障中' : '离线中'
+                const tagObj = num === 1 ?
+                { bgColor: '#208933', txt: '待机中' } : num === 2 ?
+                { bgColor: '#1b6bec', txt: '运行中' } : num === 3 ?
+                { bgColor: '#f85c52', txt: '故障中' } : { bgColor: '#6c6c6c', txt: '离线中' }
+                return <Button style={{ background: tagObj.bgColor, color: 'white' }}>{tagObj.txt}</Button>
+                // return <span style={{ color: tagObj.bgColor }}>{tagObj.txt}</span>
             },
-        ];
+          }, {
+            title: '送水压力',
+            dataIndex: 'pressure',
+            key: 'pressure',
+          }, {
+            title: '送水温度',
+            key: 'temperature',
+            dataIndex: 'temperature',
+          }];
+
+        const data = [{
+            key: '1',
+            name: '冷冻水泵1',
+            state: 32,
+            pressure: '23.67',
+            temperature: 23.2,
+          }, {
+            key: '2',
+            name: '冷冻水泵2',
+            state: 42,
+            pressure: '24.04',
+            temperature: 23.2,
+          }, {
+            key: '3',
+            name: '冷冻水泵3',
+            state: 32,
+            pressure: '23.14',
+            temperature: 23.2,
+          }, {
+            key: '4',
+            name: '冷冻水泵4',
+            state: 32,
+            pressure: '23.14',
+            temperature: 23.2,
+          }, {
+            key: '5',
+            name: '热水泵1',
+            state: 32,
+            pressure: '23.14',
+            temperature: 23.2,
+          }, {
+            key: '6',
+            name: '热水泵2',
+            state: 32,
+            pressure: '23.14',
+            temperature: 23.2,
+          }, {
+            key: '7',
+            name: '热水泵3',
+            state: 32,
+            pressure: '23.14',
+            temperature: 23.2,
+          }, {
+            key: '8',
+            name: '热水泵4',
+            state: 32,
+            pressure: '23.14',
+            temperature: 23.2,
+          }];
 
         return (
             <Fragment>
@@ -112,8 +186,11 @@ export default class Home extends Component {
                             />
                         </div>
                     </Col>
+                    <Col span={18} />
                 </Row>
-                {/* </PageHeaderLayout> */}
+                {/* <Card title="空压机">
+                    <p>空压机由业主提供,品牌未知,参数监控罐体压力</p>
+                </Card> */}
             </Fragment>
         )
     }

@@ -5,7 +5,7 @@ import {
     common,
 } from 'api'
 import {
-    createAjaxAction,
+    createAjaxAction, ajax,
 } from 'utils'
 
 
@@ -17,3 +17,10 @@ export const fetchLogin = createAjaxAction( common.login )
 export const fetchRegister = createAjaxAction( common.register )
 export const userInfo = createAjaxAction( common.userInfo )
 export const updateBreadcrumbList = createAction( 'update breadcrumb list' );
+
+// export const device_brand_list = ajax.fetchJSONByPost( 'api/device/brand/list' )
+export const testPost = createAjaxAction(
+    ajax.fetchJSONByPost( 'api/device/brand/list' ),
+    null,
+    createAction( 'success delete device equipment' ),
+)
