@@ -2,10 +2,6 @@
 ****************
 *车间监控模块 */
 
-export const TWorkshopScada = {
-    path: '/scada/punch',
-    component: props => import( /* webpackChunkName: "TScadaWorkShop_Auto" */'../pages/TScada/TScadaWorkShop_Auto' ),
-}
 export const firstFloor = {
     path: '/scada/first',
     component: props => import( /* webpackChunkName: "firstFloor" */'../pages/scada/first' ),
@@ -22,4 +18,4 @@ export const topFloor = {
     path: '/scada/energy',
     component: props => import( /* webpackChunkName: "energy" */'../pages/scada/energy' ),
 }
-export default TWorkshopScada;
+export default firstFloor;
