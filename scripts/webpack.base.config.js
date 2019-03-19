@@ -26,6 +26,7 @@ const webpackConfigBase = {
     extensions: ['.js', '.json'], // 自动解析扩展,能够使用户在引入模块时不带扩展
     alias: {
       components: path.join( __dirname, '/../app/components' ),
+      widgets: path.join( __dirname, '/../app/widgets' ),
       actions: path.join( __dirname, '/../app/actions' ),
       api: path.join( __dirname, '/../app/api' ),
       reducers: path.join( __dirname, '/../app/reducers' ),
@@ -34,7 +35,6 @@ const webpackConfigBase = {
       style: path.join( __dirname, '/../app/style' ),
       images: path.join( __dirname, '/../app/images' ),
       base: path.join( __dirname, '/../app/base' ),
-      functions: path.join( __dirname, '/../app/functions' ),
     },
   },
   resolveLoader: {

@@ -33,6 +33,18 @@ export default ( () => {
         authItem: 'energy',
         children: [
           {
+            name: '温湿度监视',
+            // icon: 'desktop',
+            key: '/ambience/plate',
+            url: '/ambience/plate',
+          },
+          {
+            name: '设备监视',
+            // icon: 'desktop',
+            key: '/ambience/device',
+            url: '/ambience/device',
+          },
+          {
             name: '一楼',
             // icon: 'desktop',
             key: '/scada/first',
@@ -179,3 +191,14 @@ export default ( () => {
 export const prefix = global.gconfig.linkUrl
 // export const suffix = '.json'
 export const suffix = ''
+
+/* tp_config={
+  theme:'',
+  layout:'',
+  projectlist:[{
+    theme:'',
+    layout:'',
+    nav:[{}]
+  }],
+
+} */

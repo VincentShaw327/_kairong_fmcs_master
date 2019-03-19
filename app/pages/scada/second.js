@@ -1,15 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { Card, Icon, Row, Col, message, Divider, Popconfirm } from 'antd';
-import { device_type_list, device_type_add, device_type_update, device_type_delete } from 'actions/device'
-import { TPostData } from 'utils/TAjax';
-import SimpleTable from 'components/TTable/SimpleTable';
-import { CreateModal, UpdateModal } from 'components/TModal';
-// import { SimpleQForm, StandardQForm } from 'components/TForm';
-import { fn_mes_trans } from 'functions'
 import styles from './index.less'
-import PageHeaderLayout from '../../base/PageHeaderLayout';
-import FFU from '../../images/device/timg.jpg'
 
 const IconFont = Icon.createFromIconfontCN( {
     scriptUrl: '//at.alicdn.com/t/font_1068745_luyn7t6ete.js',
@@ -41,15 +33,7 @@ export default class type extends Component {
         // this.props.dispatch( device_type_list( fn_mes_trans.toFilter( filter ), ( respose ) => {} ) )
     }
 
-    componentDidMount() {
-        const { pageSize, current } = this.state;
-        const page = { page: current, size: pageSize }
-        const { list } = this.props.deviceType;
-        /* if ( Array.isArray( list ) && list.length === 0 ) {
-            this.props.dispatch( device_type_list( page, ( respose ) => {} ) )
-            // console.log( '...请求list...' );
-        } */
-    }
+    componentDidMount() {}
 
     render() {
         const Milieu = ( obj ) => {

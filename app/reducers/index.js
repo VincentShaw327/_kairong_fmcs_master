@@ -12,33 +12,14 @@ import {
   loginResponse, Breadcrumb,
 } from './common'
 
-
-// bom
-import {
-  device,
-  deviceModel,
-  deviceType,
-  // DevCheck,
-  deviceBrand,
-} from './device'
-// bom
-import {
-  productOrder,
-  productTask,
-  productJob,
-  productDist,
-  Feeding,
-} from './production'
-
-// bom
-import {
+/* import {
   UserAccount,
   UserGroup,
   UserAuth,
   UserRole,
-} from './user'
+} from './user' */
 
-import { AuthGroup, AuthCategory } from './auth'
+// import { AuthGroup, AuthCategory } from './auth'
 
 const rootReducer = combineReducers( {
     routing,
@@ -48,23 +29,23 @@ const rootReducer = combineReducers( {
     loginResponse,
     Breadcrumb,
 
-    device,
-    deviceModel,
-    deviceType,
-    deviceBrand,
-    productOrder,
-    productTask,
-    productJob,
-    productDist,
-    Feeding,
+    // device,
+    // deviceModel,
+    // deviceType,
+    // deviceBrand,
+    // productOrder,
+    // productTask,
+    // productJob,
+    // productDist,
+    // Feeding,
 
-    UserAccount,
-    UserGroup,
-    UserAuth,
-    UserRole,
+    // UserAccount,
+    // UserGroup,
+    // UserAuth,
+    // UserRole,
 
-    AuthGroup,
-    AuthCategory,
+    // AuthGroup,
+    // AuthCategory,
 } );
 
 export default rootReducer;

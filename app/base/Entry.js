@@ -25,7 +25,6 @@ const isLogin = ( nextState, replaceState ) => {
   } */
   let isHavelogin;
   const authority = sessionStorage.getItem( 'user_authority' );
-  console.log( 'authority', Routes )
   if ( !authority ) {
       isHavelogin = true
   } else {
@@ -107,6 +106,7 @@ export default class TIndexPage extends React.Component {
     }
 
     render() {
+        console.log( 'authority', Routes )
         // const { children } = this.props
         return (
             <Layout style={{ height: '100%' }}>
