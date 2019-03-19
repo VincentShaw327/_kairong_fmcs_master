@@ -1,0 +1,461 @@
+
+// @first-floor-height : 40vw;
+@first-floor-width : 80vw;
+@first-floor-height : 0.4*@first-floor-width;
+// @trd-l-aux-width:@first-floor-width*0.088;
+@trd-l-aux-width:@first-floor-width*0.100;
+// @trd-r-aux-width:@first-floor-width*0.045;//按比例默认原始宽度
+@trd-r-aux-width:@first-floor-width*0.070;
+
+@second-floor-width : 57vw;
+@second-floor-height : 0.426*@second-floor-width;
+@ann-width:0.499*@second-floor-width;
+@store-house-left:0.638*@second-floor-width;
+
+
+@third-floor-width : 40vw;
+@third-floor-height : 0.426*@third-floor-width;
+@coa-room-width:0.070*@third-floor-width;
+
+
+/*
+***车间名称样式定义 
+ */
+  // 温湿度参数字体
+@pm-font-size:3vw;   //参数数字大小
+@i-icon-size:1.5vw;   //图标大小
+@unit-size:1.2vw; //单位符号大小
+@title-font-size:1vw;  // 车间名称字体
+@name-bgcolor:#049caf;  // 车间名称背景色
+// @name-color:white; // 车间名称字体色
+@name-color:#049caf; // 车间名称字体色
+@name-padding:0.25vw 0.8vw;
+// @f1-color:#eaeaf1;
+@f1-color:white;
+
+
+
+.ws_plate{
+    // width: 800px;
+    // height: 700px;
+    // background: rgb(72, 181, 189)
+}
+.workshop(@bg:@name-bgcolor;@fc:@name-color;@padding:@name-padding;@margin:inital;@size:@title-font-size){
+    display:inline-block;
+    // background:@bg;
+    padding: @padding;
+    // font-size: 22px;
+    font-size: @size;
+    color: @fc;
+    margin: @margin
+}
+.para-content(@dir:column;@jus-c:center;@width:50%;@height:50%;@margin:3% auto;@num-size:@pm-font-size;@icon-size:@i-icon-size;@usize:@unit-size){
+    // border: solid 1px #e1e1e1;
+    width:@width;
+    height:@height;
+    margin: @margin;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: @dir;
+    align-items: center;
+    justify-content: @jus-c;
+    .num{
+        // font-size: 32px;
+        font-size: @num-size;
+        color: #c95e07;
+    }
+    .unit{
+        margin-left: 0.5*@usize;
+        font-size: @usize;
+    }
+    .icon{font-size: @icon-size;}
+}
+
+.firstfloor{
+    position: relative;
+    width:@first-floor-width;
+    height: @first-floor-height;
+    margin-bottom: 15px;
+    // border: solid 1px rgb(247, 212, 14);
+    .empty{
+        // height: @first-floor-height*0.21;
+        width:@first-floor-width*0.060;
+    }
+    .one{
+        z-index: 10;
+        display: flex;
+        position: absolute;
+        // overflow: hidden;
+        div{
+            display: inline-block;
+            top:0;
+        }
+        .cleanroom{
+            border:1px solid #a6a7a8;
+            // border-right: none;
+            background:@f1-color;
+            // opacity:0.6;
+            height: @first-floor-height*0.34;
+            width:@first-floor-width*0.19;
+            // height: 250px;
+            // width:100%;
+            .title{
+                .workshop()
+            }
+            .parameter{
+                .para-content(@width:65%;@height:65%;@margin:3% auto;@num-size:1.5vw;@icon-size:0.8vw;@usize:0.8vw;);
+            }
+        }
+        .coatingroom{
+            border:1px solid #a6a7a8;
+            // border:1px solid rgba(1,30,60,1);
+            border-right: none;
+            border-left: none;
+            background:@f1-color;
+            // opacity:0.6;
+            height: @first-floor-height*0.197;
+            width:@first-floor-width*0.464;
+            .title{
+                .workshop()
+            }
+            .parameter{
+                .para-content(@dir:row;@jus-c:space-evenly;@width:65%;@height:50%;@margin:0.3vw auto;@num-size:1.5vw;@icon-size:0.8vw;@usize:0.8vw;);
+                // border: solid 1px blueviolet;
+                // height: 50%;
+                // width: 65%;
+                // margin: 3% auto;
+                // flex-direction: row;
+            }
+        }
+        .officeroom{
+            border:1px solid #a6a7a8;
+            background:@f1-color;
+            // opacity:0.6;
+            height: @first-floor-height;
+            width:@first-floor-width*0.283;
+            .title{
+                .workshop()
+            }
+            .parameter{
+                .para-content(@width:50%;@height:70%;@margin:3vw auto;@num-size:1.5vw;@icon-size:0.8vw;@usize:0.8vw;);
+                // border: solid 1px blueviolet;
+                // height: 50%;
+                // width: 65%;
+                // margin: 3% auto;
+                // flex-direction: row;
+            }
+        }
+    }
+    .two{
+        top:6.24vw;
+        z-index: 1;
+        display: flex;
+        position: absolute;
+        div{
+            display: inline-block;
+        }
+        .lockerroom{
+            border:1px solid #a6a7a8;
+            border-right: none;
+            background:@f1-color;
+            // background: #eaeaf1;
+            // opacity:0.6;
+            height: @first-floor-height*0.352;
+            width:@first-floor-width*0.128;
+            .title{
+                .workshop(@margin:@first-floor-height*0.144 0;)
+            }
+            .parameter{
+                .para-content(@width:90%;@height:32%;@margin:-43% auto;@num-size:1.5vw;@icon-size:0.8vw;@usize:0.8vw;);
+                // border: solid 1px #4ed8dd;
+            }
+        }
+        .umbrellarroom{
+            position: relative;
+            border:1px solid #a6a7a8;
+            border-right: none;
+            background:@f1-color;
+            // opacity:0.6;
+            height: @first-floor-height*0.352;
+            width:@first-floor-width*0.526;
+            // width:100%;
+            .divider{
+                position: absolute;
+                top: @first-floor-height*0.144;
+                display: inline-block;
+                border-top: dotted 1px #d5d7da;
+                width: 100%;
+                // margin-top: 4.53vw;
+                // margin-top: @first-floor-height*0.142;;
+            }
+            .parameter{
+                .para-content(@dir:column;@jus-c:center;@width:65%;@height:50%;@margin:1.8vw auto;@num-size:1.5vw;@icon-size:0.8vw;@usize:0.8vw;);
+                // border: solid 1px blueviolet;
+            }
+            .title1,.title2{
+                position: absolute;
+                // color: @name-bgcolor;
+                color: @name-bgcolor;
+                padding: @name-padding;
+                font-size: @title-font-size;
+                // background: @name-color;
+            }
+            .title1{
+                // background: @name-bgcolor;
+                left:@first-floor-width*0.061;
+            }
+            .title2{
+                top: @first-floor-height*0.144;
+            }
+        }
+    }
+    .three{
+        z-index: 8;
+        display: flex;
+        position: absolute;
+        bottom: 0px;
+        .left{
+            border:1px solid #a6a7a8;
+            // border:1px solid rgba(1,30,60,1);
+            border-right: none;
+            background:@f1-color;
+            // background: rgb(250, 253, 237);
+            height: @first-floor-height*0.35;
+            width:@first-floor-width*0.268;
+            .up{
+                width: 100%;
+                height: @first-floor-height*0.116;
+                border-bottom: solid 1px #a6a7a8;
+                .title{
+                    .workshop(@size:0.8vw;@padding:0.2vw 0.3vw;)
+                }
+                .parameter{
+                    // border: solid 1px blue;
+                    .para-content(@dir:row;@jus-c:space-evenly;@width:65%;@height:65%;@margin:-1vw auto;@num-size:1.5vw;@icon-size:0.8vw;@usize:0.8vw;);
+                }
+            }
+            .down{
+                width: 100%;
+                height: @first-floor-height*0.230;
+                .title{
+                    .workshop(@size:0.8vw;@padding:0.2vw 0.3vw;)
+                }
+                .parameter{
+                    // border: solid 1px blue;
+                    .para-content(@dir:row;@jus-c:space-evenly;@width:80%;@height:65%;@margin:-1vw auto;@num-size:1.5vw;@icon-size:0.8vw;@usize:0.8vw;);
+                }
+            }
+        }
+        .right{
+            border:1px solid #a6a7a8;
+            position: relative;
+            // border:1px solid rgba(1,30,60,1);
+            border-right: none;
+            background:@f1-color;
+            height: @first-floor-height*0.35;
+            width:@first-floor-width*0.446;
+            .RLeft{
+                display: inline-block;
+                position: absolute;
+                height: 100%;
+                width:@trd-l-aux-width;
+                border-right: solid 1px #a6a7a8;
+                .up{
+                    border-bottom: solid 1px #a6a7a8;
+                    height: @first-floor-height*0.184;
+                    .title{
+                        .workshop(@size:0.8vw;@padding:0.2vw 0.3vw;)
+                    }
+                    .parameter{
+                        // border: solid 1px blue;
+                        .para-content(@width:90%;@height:55%;@margin:0.15vw auto;@num-size:1.5vw;@icon-size:0.8vw;@usize:0.8vw;);
+                    }
+                }
+                .down{
+                    // border-bottom: solid 1px #a6a7a8;
+                    height: @first-floor-height*0.162;
+                    .title{
+                        .workshop(@size:0.8vw;@padding:0.2vw 0.3vw;)
+                    }
+                    .parameter{
+                        // border: solid 1px blue;
+                        .para-content(@width:85%;@height:50%;@margin:0.15vw auto;@num-size:1.5vw;@icon-size:0.8vw;@usize:0.8vw;);
+                    }
+                }
+            }
+            .RCenter{
+                display: inline-block;
+                position: absolute;
+                left:@trd-l-aux-width;
+                right:@trd-r-aux-width;
+                height: 100%;
+                // border: solid 1px #e6dc56;
+                .title{
+                    .workshop()
+                }
+                .parameter{
+                    // border: solid 1px blue;
+                    .para-content(@dir:row;@jus-c:space-evenly;@width:90%;@height:50%;@margin:1.5vw auto;@num-size:1.5vw;@icon-size:0.8vw;@usize:0.8vw;);
+                }
+            }
+            .RRight{
+                display: inline-block;
+                position: absolute;
+                right: 0px;
+                height: 100%;
+                width:@trd-r-aux-width;
+                border-left: solid 1px #a6a7a8;
+                .title{
+                    .workshop(@size:0.8vw;@padding:0.2vw 0.3vw;)
+                }
+                .parameter{
+                    // border: solid 1px blue;
+                    // right: 0;
+                    // position: absolute;
+                    // .para-content(@width:150%;@height:60%;@margin:1vw auto;@num-size:1.5vw;@icon-size:0.75vw;@usize:0.3vw;);
+                    .para-content(@width:98%;@height:60%;@margin:1vw auto;@num-size:1.5vw;@icon-size:0.8vw;@usize:0.8vw;);
+                }
+            }
+        }
+    }
+}
+.secondfloor{
+    // border: solid 1px #34d2ee;
+    position: relative;
+    width:@second-floor-width;
+    height: @second-floor-height;
+    // border:solid 1px #b9b9bb;
+    margin-bottom: 15px;
+    .one{
+        width:@second-floor-width;
+        height:0.248*@second-floor-width;
+        border: solid 1px #d6d6d6;
+        // border-right: none;
+        // border-left: none;
+        background: #ffffff;
+        .title{
+            // .workshop(@size:0.8vw;@padding:0.2vw 0.3vw;)
+            .workshop()
+        }
+        .parameter{
+            // border: solid 1px blue;
+            .para-content(@dir:row;@jus-c:space-evenly;@width:80%;@height:65%;@margin:-1vw auto;@num-size:2.5vw;@icon-size:2.5vw;);
+        }
+    }
+    .two{
+        width:@second-floor-width;
+        height:0.147*@second-floor-width;
+        bottom: 0px;
+        position: absolute;
+        border: solid 1px #c6c6c7;
+        background: #ffffff;
+        div{display: inline-block;}
+        .annealing{
+            position: absolute;
+            height: 100%;
+            left: 0;
+            right: @ann-width;
+            // border: solid 1px #f06262;
+            .title{
+                .workshop(@size:0.8vw;@padding:0.2vw 0.3vw;)
+                // .workshop()
+            }
+            .parameter{
+                // border: solid 1px blue;
+                .para-content(@dir:row;@jus-c:space-evenly;@width:80%;@height:65%;@margin:-1vw auto;@num-size:2.5vw;@icon-size:2.5vw;);
+            }
+        }
+        .warehouse{
+            position: absolute;
+            background: #f5f2f1;
+            border:dotted 1px #c0c0c2;
+            border-top: none;
+            border-bottom: none;
+            // width:0.147*@second-floor-width;
+            width: @store-house-left - @ann-width;
+            height: 100%;
+            // left:0.499*@second-floor-width;
+            left:@ann-width;
+            .title{
+                .workshop(@size:0.8vw;@padding:0.2vw 0.3vw;)
+                // .workshop()
+            }
+            .parameter{
+                // border: solid 1px blue;
+                .para-content(@width:90%;@height:65%;@margin:0.5vw auto;@num-size:1.5vw;@icon-size:1vw;);
+            }
+        }
+        .storehouse{
+            // border:solid 1px #e918c6;
+            position: absolute;
+            height: 100%;
+            right: 0;
+            left:@store-house-left;
+            .title{
+                .workshop(@size:0.8vw;@padding:0.2vw 0.3vw;)
+                // .workshop()
+            }
+            .parameter{
+                // border: solid 1px blue;
+                .para-content(@dir:row;@jus-c:space-evenly;@width:90%;@height:65%;@margin:-0.5vw auto;@num-size:1.8vw;@icon-size:1.8vw;);
+            }
+        }
+    }
+}
+.thirdfloor{
+    position: relative;
+    width:@third-floor-width;
+    height: @third-floor-height;
+    // border:solid 1px #b9b9bb;
+    background: #ffffff;
+    margin-bottom: 15px;
+    div{
+        display: inline-block;
+    }
+    .one{
+        width:@coa-room-width;
+        height:0.282*@third-floor-height;
+        border :solid 1px #c0c0c2;
+        // border-left: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .roomname{
+            // border: solid 1px;
+            font-size: 0.4*@coa-room-width;
+            width: 50%;
+            height: 73%;
+            writing-mode: tb-rl;
+        }
+    }
+    .two{
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        width:@coa-room-width;
+        height:0.4*@third-floor-height;
+        border-left: none;
+        border :solid 1px #c0c0c2;
+    }
+    .trace{
+        // border: solid 1px #d4c00d;
+        position: absolute;
+        height: 100%;
+        left:@coa-room-width;
+        right: 0;
+        top: 0;
+        .roomname{
+            display: flex;
+            // border: solid 1px;
+            font-size: 0.75*@coa-room-width;
+            margin: 2vw auto;
+            width: 25%;
+            // height: 73%;
+            // writing-mode: tb-rl;
+        }
+        .parameter{
+            // border: solid 1px blue;
+            .para-content(@dir:row;@jus-c:space-evenly;@width:90%;@height:50%;@margin:-0.5vw auto;@num-size:2.5vw;@icon-size:2.5vw;);
+        }
+    }
+}
