@@ -1,6 +1,7 @@
 import * as scada from './scada'
 import * as report from './report'
 import * as ambience from './ambience'
+import * as energy from './energy'
 // import * as setting from './setting'
 
 export const Home = {
@@ -10,6 +11,7 @@ export const Home = {
 export default Object.assign(
     { Home },
     ambience,
-    scada,
+    energy,
+    // scada,
     report,
 )

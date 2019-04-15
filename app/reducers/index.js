@@ -21,6 +21,8 @@ import {
 
 // import { AuthGroup, AuthCategory } from './auth'
 
+import MQTTDate from './mqtt'
+
 const rootReducer = combineReducers( {
     routing,
     config: ( state = {} ) => state,
@@ -46,6 +48,7 @@ const rootReducer = combineReducers( {
 
     // AuthGroup,
     // AuthCategory,
+    MQTTDate,
 } );
 
 export default rootReducer;

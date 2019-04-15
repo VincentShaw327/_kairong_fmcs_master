@@ -44,7 +44,7 @@ export default ( () => {
             key: '/ambience/device',
             url: '/ambience/device',
           },
-          {
+          /* {
             name: '一楼',
             // icon: 'desktop',
             key: '/scada/first',
@@ -64,7 +64,7 @@ export default ( () => {
             key: '/scada/third',
             url: '/scada/third',
             authItem: 'scada',
-          },
+          }, */
         ],
       },
       {

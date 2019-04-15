@@ -9,6 +9,7 @@ import './test/iconfont.css';
 // import './test/iconfont.js';
 // import './custom.less';
 
+
 const store = configure( { config: global.gconfig } );
 ReactDOM.render(
     <Provider store={store}>

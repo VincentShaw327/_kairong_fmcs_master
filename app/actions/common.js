@@ -24,3 +24,6 @@ export const testPost = createAjaxAction(
     null,
     createAction( 'success delete device equipment' ),
 )
+
+
+export const resMqtt = createAction( 'resMqttData' );
