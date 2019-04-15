@@ -1,13 +1,51 @@
 import React, { Component, Fragment } from 'react'
 import { Row, Col, List, Avatar } from 'antd';
 
-import DeviceState from 'components/DeviceState'
-
 export default class windCabinet extends Component {
     /* constructor() {
         super()
     } */
     render() {
+        let sunFixColumn = 0
+        let sunFixNum = 0
+        const sumFixWidth = ( arr ) => {
+            // arr.filter( r => r.hasOwnProperty( 'width' ) )
+            arr.forEach( ( ele ) => {
+                if ( ele.width ) {
+                    ++sunFixColumn
+                    sunFixNum += ele.width
+                }
+            } );
+        }
+        const reckonWidth = ( r, i, arr ) => {
+            const len = this.props.data.length
+            const columnNum = arr.length
+            if ( r.width ) {
+                return parseInt( r.width, 10 )
+            } else if ( !r.width && sunFixNum < 24 ) {
+
+            }
+            return 24 / columnNum
+        }
+        const columns = [{
+            title: '名称',
+            dataIndex: 'name',
+            key: 'name',
+            // render: text => <a href="javascript:;">{text}</a>,
+          }, {
+            title: '状态',
+            dataIndex: 'state',
+            key: 'state',
+          }, {
+            title: '送水压力',
+            dataIndex: 'pressure',
+            key: 'pressure',
+          }, {
+            title: '送水温度',
+            key: 'temperature',
+            dataIndex: 'temperature',
+          },
+        ];
         const data = [
             {
                 floor: '一楼',
@@ -114,19 +152,21 @@ export default class windCabinet extends Component {
                     }],
             },
         ];
-        const ListHead = (
+        const ListHead = () => (
+                <Row>
+                    {
+                       columns.map( ( r, i, arr ) => <Col span={reckonWidth( r, i, arr )}>{r.title}</Col> )
+                    }
+                </Row>
+            ) /* (
             <Row>
                 <Col span={4}>楼层</Col>
                 <Col span={5}>名称</Col>
                 <Col span={5}>编号</Col>
                 <Col span={5}>控制方式</Col>
                 <Col span={5}>状态</Col>
-                {/* <Col span={4} /> */}
             </Row>
-        )
-        const renderStatus = status => ( status === 1 ? <DeviceState txt="运行中" type="running" /> :
-                    status === -1 ? <DeviceState txt="报警中" type="warning" /> :
-                    status === 0 ? <DeviceState txt="离线中" type="offline" /> : <DeviceState /> )
+        ) */
         return (
             <Fragment>
                 <List
@@ -136,10 +176,6 @@ export default class windCabinet extends Component {
                   dataSource={data}
                   renderItem={item => (
                     <List.Item>
-                        {/* <List.Item.Meta avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                            title={<a href="https://ant.design">{item.title}</a>}
-                            description="Ant Design, a design language for background applications, is refined by Ant UED Team"
-                        /> */}
                         <Row type="flex" justify="center" align="middle" style={{ width: '100%' }}>
                             <Col span={4}>{item.floor}</Col>
                             <Col span={20}>
@@ -149,8 +185,7 @@ export default class windCabinet extends Component {
                                             <Col span={6}>{cb.name}</Col>
                                             <Col span={6}>{cb.id}</Col>
                                             <Col span={6}>{cb.type}</Col>
-                                            {/* <Col span={6}>{cb.status}</Col> */}
-                                            <Col span={6}>{renderStatus( cb.status )}</Col>
+                                            <Col span={6}>{ cb.status}</Col>
                                         </Row>
                                     ) )
                                 }
