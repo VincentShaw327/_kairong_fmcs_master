@@ -129,7 +129,7 @@ export default class windCabinet extends Component {
                     status === 0 ? <DeviceState txt="离线中" type="offline" /> : <DeviceState /> )
         return (
             <Fragment>
-                <Card>
+                <div style={{ background: 'white' }}>
                     <List
                       bordered
                       header={ListHead}
@@ -161,7 +161,7 @@ export default class windCabinet extends Component {
                         </List.Item>
                         )}
                     />
-                </Card>
+                </div>
             </Fragment>
         )
     }
