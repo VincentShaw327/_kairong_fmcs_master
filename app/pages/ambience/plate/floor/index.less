@@ -7,13 +7,13 @@
 // @trd-r-aux-width:@first-floor-width*0.045;//按比例默认原始宽度
 @trd-r-aux-width:@first-floor-width*0.070;
 
-@second-floor-width : 57vw;
+@second-floor-width : 63vw;
 @second-floor-height : 0.426*@second-floor-width;
 @ann-width:0.499*@second-floor-width;
 @store-house-left:0.638*@second-floor-width;
 
 
-@third-floor-width : 40vw;
+@third-floor-width : 63vw;
 @third-floor-height : 0.426*@third-floor-width;
 @coa-room-width:0.070*@third-floor-width;
 
@@ -70,12 +70,19 @@
     }
     .icon{font-size: @icon-size;}
 }
+.workshop-border(){
+    @ws-border-style:groove;
+    border-style: solid;
+    border-width: 0.3vw;
+    border-color: #e9eaeb;
+}
 
 .firstfloor{
     position: relative;
     width:@first-floor-width;
     height: @first-floor-height;
     margin-bottom: 15px;
+
     // border: solid 1px rgb(247, 212, 14);
     .empty{
         // height: @first-floor-height*0.21;
@@ -91,8 +98,9 @@
             top:0;
         }
         .cleanroom{
-            border:1px solid #a6a7a8;
+            // border:1px solid #a6a7a8;
             // border-right: none;
+            .workshop-border();
             background:@f1-color;
             // opacity:0.6;
             height: @first-floor-height*0.34;
@@ -107,8 +115,10 @@
             }
         }
         .coatingroom{
-            border:1px solid #a6a7a8;
+            .workshop-border();
+            // border:1px solid #a6a7a8;
             // border:1px solid rgba(1,30,60,1);
+            border-bottom: none;
             border-right: none;
             border-left: none;
             background:@f1-color;
@@ -128,7 +138,8 @@
             }
         }
         .officeroom{
-            border:1px solid #a6a7a8;
+            .workshop-border();
+            // border:1px solid #a6a7a8;
             background:@f1-color;
             // opacity:0.6;
             height: @first-floor-height;
@@ -155,7 +166,8 @@
             display: inline-block;
         }
         .lockerroom{
-            border:1px solid #a6a7a8;
+            .workshop-border();
+            // border:1px solid #a6a7a8;
             border-right: none;
             background:@f1-color;
             // background: #eaeaf1;
@@ -171,8 +183,9 @@
             }
         }
         .umbrellarroom{
+            .workshop-border();
+            // border:1px solid #a6a7a8;
             position: relative;
-            border:1px solid #a6a7a8;
             border-right: none;
             background:@f1-color;
             // opacity:0.6;
@@ -215,7 +228,8 @@
         position: absolute;
         bottom: 0px;
         .left{
-            border:1px solid #a6a7a8;
+            .workshop-border();
+            // border:1px solid #a6a7a8;
             // border:1px solid rgba(1,30,60,1);
             border-right: none;
             background:@f1-color;
@@ -225,6 +239,7 @@
             .up{
                 width: 100%;
                 height: @first-floor-height*0.116;
+                // .workshop-border();
                 border-bottom: solid 1px #a6a7a8;
                 .title{
                     .workshop(@size:0.8vw;@padding:0.2vw 0.3vw;)
@@ -247,7 +262,8 @@
             }
         }
         .right{
-            border:1px solid #a6a7a8;
+             .workshop-border();
+            //  border:1px solid #a6a7a8;
             position: relative;
             // border:1px solid rgba(1,30,60,1);
             border-right: none;

@@ -1,13 +1,20 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { Card, Icon, Row, Col, message, Divider, Popconfirm } from 'antd';
+import { Card, Icon, Row, Col, message, Divider, Collapse, Tabs, Select } from 'antd';
+import moment from 'moment'
+
 import FFU from 'images/device/timg.jpg'
 import styles from './index.less'
-// import PageHeaderLayout from '../../base/PageHeaderLayout';
+import Milieu from './module/milieu'
+import Curved, { SecondList } from './module/chart'
 
+const { Panel } = Collapse
+const { Option } = Select;
 const IconFont = Icon.createFromIconfontCN( {
     scriptUrl: '//at.alicdn.com/t/font_1068745_luyn7t6ete.js',
 } );
+const getRandomArbitrary = ( min, max ) => Math.random().toFixed( 2 ) * ( max - min ) + min
+
 
 @connect( ( state, props ) => ( {
     deviceType: state.deviceType,
@@ -24,54 +31,77 @@ export default class type extends Component {
     componentWillMount() {}
 
     componentDidMount() {}
-
+    handleChange=() => {}
     render() {
-        const Milieu = ( obj ) => {
-            const { title = '车间名称', temp = 23.4, rh = 12 } = obj
-            return (
-                <Fragment>
-                    <span className={styles.title}>{title}</span>
-                    <div className={styles.parameter}>
-                        <div>
-                            <IconFont className={styles.icon} type="icon-wendu" />
-                            <span className={styles.num}>{temp}</span>
-                            <span className={styles.unit}>℃</span>
-                        </div>
-                        <div>
-                            <IconFont className={styles.icon} type="icon-humidity" />
-                            <span className={styles.num}>{rh}</span>
-                            <span className={styles.unit}>RH%</span>
-                        </div>
-                    </div>
-                </Fragment>
-            )
-        };
+        const columns = [
+            /* {
+                title: '车间',
+                dataIndex: 'workshop',
+                key: 'workshop',
+                render: text => <span>车间名称</span>,
+            }, */ {
+                title: '时间',
+                dataIndex: 'time',
+                key: 'time',
+                // render: text => <a href="javascript:;">{text}</a>,
+            }, {
+                title: '温度',
+                dataIndex: 'temperature',
+                key: 'temperature',
+            }, {
+                title: '湿度',
+                dataIndex: 'humidity',
+                key: 'humidity',
+            }];
+        const data01 = [];
+        const data02 = [];
+        const plainOptions = ['预留厂房', '退火室', '成品仓', '仓库'];
+        for ( let index = 0; index < 9; index++ ) {
+            data01.push( {
+                month: 'Jan',
+                time: moment( { hour: 0, minute: 0, second: 3 } ).add( index, 'h' ).format( 'HH:mm:ss' ),
+                temperature: getRandomArbitrary( 20, 23 ),
+                humidity: getRandomArbitrary( 20, 25 ),
+            } )
+            data02.push( {
+                key: index,
+                name: `0${index}月`,
+                time: `0${index}:00`,
+                age: 32,
+                address: 'New York No. 1 Lake Park',
+                tags: ['nice', 'developer'],
+                temperature: getRandomArbitrary( 20, 25 ),
+                humidity: getRandomArbitrary( 20, 25 ),
+                produce: getRandomArbitrary( 20, 25 ),
+                cold: getRandomArbitrary( 20, 25 ),
+                air: getRandomArbitrary( 20, 25 ),
+                nitrogen: getRandomArbitrary( 20, 25 ),
+                purewater: getRandomArbitrary( 20, 25 ),
+            } )
+        }
         return (
             <Fragment>
-            {/* <PageHeaderLayout
-               wrapperClassName="pageContent"
-               BreadcrumbList={bcList}
-             > */}
-            {/* <Row gutter={16} style={{ marginBottom: 18 }}>
-                <Col span={12}>
-                    <Card title="生产设备总开关箱01">
-                        <p>电能:***W</p>
-                        <p>电流:2.4A</p>
-                        <p>电压:217v</p>
-                        <p>功率系数</p>
-                    </Card>
-                </Col>
-                <Col span={12}>
-                    <Card title="生产设备总开关箱02">
-                        <p>电能:***W</p>
-                        <p>电流:2.4A</p>
-                        <p>电压:217v</p>
-                        <p>功率系数</p>
-                    </Card>
-                </Col>
-            </Row> */}
-            <Row>
-                <Col span={16}>
+                <div style={{ width: '65vw', background: 'white' }}>
+                    <Collapse
+                      style={{ marginBottom: 18 }}
+                      bordered={false}
+                    >
+                        <Panel header="当天温湿度曲线图" key="1" >
+                                <Tabs>
+                                    <Tabs.TabPane tab="温度" key="1">
+                                        <Curved width="63vw" height="25vw" data={data01} plainOptions={plainOptions} />
+                                    </Tabs.TabPane>
+                                    <Tabs.TabPane tab="湿度" key="2">
+                                        <Curved width="63vw" height="25vw" data={data01} plainOptions={plainOptions} />
+                                    </Tabs.TabPane>
+                                </Tabs>
+                        </Panel>
+                    </Collapse>
+                </div>
+                <div style={{
+                    width: '65vw', background: 'white', padding: '1vw', marginBottom: 16,
+                }}
+                >
                     <div className={styles.secondfloor}>
                         <div className={styles.one} >
                             <Milieu title="预留厂房" />
@@ -82,131 +112,28 @@ export default class type extends Component {
                             <div className={styles.storehouse}><Milieu title="仓库" /></div>
                         </div>
                     </div>
-                </Col>
-                <Col span={8}>
-                    <Card style={{ marginBottom: 18, textAlign: 'center' }}>
-                        <p style={{ marginBottom: 15, fontSize: 25, color: '#1890ff' }}>风柜状态</p>
-                        <Row>
-                            <Col span={5}>
-                                <p style={{ fontSize: 26 }}>风柜一</p>
-                                <p><span style={{
-                                        padding: 6,
-                                        background: '#1890ff',
-                                        color: 'white',
-                                        borderRadius: 6,
-                                        fontSize: 18,
-                                    }}
-                                >运行中
-                                   </span>
-                                </p>
-                            </Col>
-                            <Col span={1}><Divider type="vertical" style={{ height: 45 }} /></Col>
-                            <Col span={5}>
-                                <p style={{ fontSize: 26 }}>风柜二</p>
-                                <p><span style={{
-                                        padding: 6,
-                                        background: '#b8b8b8',
-                                        color: 'white',
-                                        borderRadius: 6,
-                                        fontSize: 18,
-                                    }}
-                                >离线中
-                                   </span>
-                                </p>
-                            </Col>
-                            <Col span={1}><Divider type="vertical" style={{ height: 45 }} /></Col>
-                            <Col span={5}>
-                                <p style={{ fontSize: 26 }}>风柜三</p>
-                                <p><span style={{
-                                        padding: 6,
-                                        background: '#EE1F1F',
-                                        color: 'white',
-                                        borderRadius: 6,
-                                        fontSize: 18,
-                                    }}
-                                >故障中
-                                   </span>
-                                </p>
-                            </Col>
-                            <Col span={1}><Divider type="vertical" style={{ height: 45 }} /></Col>
-                            <Col span={5}>
-                                <p style={{ fontSize: 26 }}>风柜四</p>
-                                <p><span style={{
-                                        padding: 6,
-                                        background: '#9A9A9A',
-                                        color: 'white',
-                                        borderRadius: 6,
-                                        fontSize: 18,
-                                    }}
-                                >离线中
-                                   </span>
-                                </p>
-                            </Col>
-                        </Row>
-                    </Card>
-                </Col>
-            </Row>
-            {/* <Card style={{ marginBottom: 18, textAlign: 'center' }}>
-                <p style={{ marginBottom: 15, fontSize: 25, color: '#1890ff' }}>风柜状态</p>
-                <Row>
-                    <Col span={5}>
-                        <p style={{ fontSize: 26 }}>风柜一</p>
-                        <p><span style={{
-                                padding: 6,
-                                background: '#1890ff',
-                                color: 'white',
-                                borderRadius: 6,
-                                fontSize: 18,
-                            }}
-                        >运行中
-                           </span>
-                        </p>
-                    </Col>
-                    <Col span={1}><Divider type="vertical" style={{ height: 45 }} /></Col>
-                    <Col span={5}>
-                        <p style={{ fontSize: 26 }}>风柜二</p>
-                        <p><span style={{
-                                padding: 6,
-                                background: '#b8b8b8',
-                                color: 'white',
-                                borderRadius: 6,
-                                fontSize: 18,
-                            }}
-                        >离线中
-                           </span>
-                        </p>
-                    </Col>
-                    <Col span={1}><Divider type="vertical" style={{ height: 45 }} /></Col>
-                    <Col span={5}>
-                        <p style={{ fontSize: 26 }}>风柜三</p>
-                        <p><span style={{
-                                padding: 6,
-                                background: '#EE1F1F',
-                                color: 'white',
-                                borderRadius: 6,
-                                fontSize: 18,
-                            }}
-                        >故障中
-                           </span>
-                        </p>
-                    </Col>
-                    <Col span={1}><Divider type="vertical" style={{ height: 45 }} /></Col>
-                    <Col span={5}>
-                        <p style={{ fontSize: 26 }}>风柜四</p>
-                        <p><span style={{
-                                padding: 6,
-                                background: '#9A9A9A',
-                                color: 'white',
-                                borderRadius: 6,
-                                fontSize: 18,
-                            }}
-                        >离线中
-                           </span>
-                        </p>
-                    </Col>
-                </Row>
-            </Card> */}
-            {/* </PageHeaderLayout> */}
+                </div>
+                <div
+                  style={{
+                        position: 'absolute',
+                        right: 5,
+                        top: 0,
+                        background: 'white',
+                        width: '20vw',
+                        minHeight: '33vw',
+                        padding: '15px 10px',
+                    }}
+                >
+                    <div style={{ marginBottom: '1vw' }}><span style={{ marginRight: 8 }}>车间:</span>
+                        <Select defaultValue="lucy" style={{ width: 120 }} onChange={this.handleChange}>
+                            <Option value="jack">预留厂房</Option>
+                            <Option value="lucy">退火室</Option>
+                            <Option value="disabled">成品仓</Option>
+                            <Option value="Yiminghe">仓库</Option>
+                        </Select>
+                    </div>
+                    <SecondList columns={columns} data={data02} />
+                </div>
             </Fragment>
         )
     }
