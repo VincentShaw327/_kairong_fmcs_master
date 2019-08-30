@@ -29,8 +29,9 @@ const webpackConfigProd = {
     // 分析代码
     new BundleAnalyzerPlugin({ analyzerPort: 3011 }),
     new Copy([
-      { from: './app/images', to: './images' },
-      { from: './app/iconfont', to: './iconfont' },
+      { from: './src/app/images', to: './images' },
+      { from: './src/app/iconfont', to: './iconfont' },
+      { from: './public/antd_iconfont.css', to: './' },
     ]),
   ],
   optimization: {

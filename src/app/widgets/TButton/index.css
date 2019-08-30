@@ -1,0 +1,79 @@
+.default{
+    background: #1890FF;
+
+}
+.offline{
+    background: #A7A7A7;
+}
+.btn{
+    font-size: 1.2em;
+    padding: 10px 25px;
+    color: white;
+    border-radius: 5px;
+    /* font-weight: bolder; */
+}
+
+.mode{
+    border: solid 1px;
+    border-radius: 10px;
+    font-size: 0.8em;
+    padding: 5px 20px;
+
+}
+.mode.manual{
+    border-color: #1890FF;
+    color: #1890FF;
+}
+
+.mode.auto{
+    border-color: #00DF6E;
+    color: #00DF6E;
+}
+.mode.stop{
+    padding: 0;
+    width: 4vw;
+    display: inline-block;
+    border-bottom: solid 2px #818181;
+}
+
+
+.devState{
+    border-radius: 6px;
+    font-size: 0.8em;
+    padding: 5px 20px;
+    color: white;
+}
+.devState.run{
+    background: #00DF6E;
+}
+.devState.err{
+    background: #F02121;
+}
+.devState.stop{
+    background: #A7A7A7;
+}
+.devState.off{
+    background: #A7A7A7;
+}
+
+
+
+.sysState{
+    border-radius: 12px;
+    font-size: 1.25em;
+    /* padding: 5px 20px; */
+    padding:0.65em;
+    color: white;
+}
+.sysState.run{
+    background: #00DF6E;
+}
+.sysState.err{
+    background: #F02121;
+}
+.sysState.stop{
+    background: #A7A7A7;
+}
+.sysState.off{
+    background: #A7A7A7;
+}

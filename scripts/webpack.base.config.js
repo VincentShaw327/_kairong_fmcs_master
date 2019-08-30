@@ -14,32 +14,34 @@ function resolve( relatedPath ) {
 /** ************* */
 const webpackConfigBase = {
   entry: {
-    client: resolve( '../app/client.js' ),
+    client: resolve( '../src/client.js' ),  //打包入口,同时也是项目启动入口
   },
   output: {
-    path: resolve( '../dist' ),
-    filename: '[name].[hash:4].js',
+    path: resolve( '../dist' ),  //打包输出口,路径和文件夹均可修改
+    filename: '[name].[hash:4].js', // 打包分析过程中,提取的公共模块
     chunkFilename: 'chunks/[name].[hash:4].js', // 按需加载模块
     // publicPath:'http://localhost:3016/dist/'
   },
   resolve: {
     extensions: ['.js', '.json'], // 自动解析扩展,能够使用户在引入模块时不带扩展
     alias: {
-      components: path.join( __dirname, '/../app/components' ),
-      widgets: path.join( __dirname, '/../app/widgets' ),
-      actions: path.join( __dirname, '/../app/actions' ),
-      api: path.join( __dirname, '/../app/api' ),
-      reducers: path.join( __dirname, '/../app/reducers' ),
-      utils: path.join( __dirname, '/../app/utils' ),
-      controllers: path.join( __dirname, '/../app/controllers' ),
-      style: path.join( __dirname, '/../app/style' ),
-      images: path.join( __dirname, '/../app/images' ),
-      base: path.join( __dirname, '/../app/base' ),
+      components: path.join( __dirname, '/../src/app/components' ),
+      widgets: path.join( __dirname, '/../src/app/widgets' ),
+      actions: path.join( __dirname, '/../src/actions' ),
+      api: path.join( __dirname, '/../src/api' ),
+      reducers: path.join( __dirname, '/../src/reducers' ),
+      utils: path.join( __dirname, '/../src/utils' ),
+      enums: path.join( __dirname, '/../src/enums' ),
+      // controllers: path.join( __dirname, '/../app/controllers' ),
+      style: path.join( __dirname, '/../src/app/style' ),
+      images: path.join( __dirname, '/../src/app/images' ),
+      base: path.join( __dirname, '/../src/app/base' ),
     },
   },
   resolveLoader: {
     moduleExtensions: ['-loader'],
   },
+  //用于编译的各种loader ,具体请参考webpack官网
   module: {
     rules: [
       {
@@ -73,7 +75,20 @@ const webpackConfigBase = {
           // 'less-loader',
           // { loader: 'style', options: { } },
           { loader: 'css', options: { sourceMap: true, modules: true } },
-          { loader: 'less', options: { sourceMap: true, modules: false } },
+          { loader: 'less', options: { 
+            sourceMap: true, 
+            modules: false ,
+               options: {
+                   modifyVars: {
+                     'primary-color': '#1DA57A',
+                     'link-color': '#1DA57A',
+                     'border-radius-base': '2px',
+                     // or
+                     'hack': `true; @import "your-less-file-path.less";`, // Override with less file
+                   },
+                   javascriptEnabled: true,
+                },
+          } },
         ],
       },
       {
@@ -109,7 +124,7 @@ const webpackConfigBase = {
     } ),
     // 将打包后的资源注入到html文件内
     new HtmlWebpackPlugin( {
-      template: resolve( '../app/index.html' ),
+      template: resolve( '../public/index.html' ),
     } ),
     new webpack.SourceMapDevToolPlugin(),
     new ProgressBarPlugin(),

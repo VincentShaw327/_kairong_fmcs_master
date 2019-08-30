@@ -1,0 +1,15 @@
+.tradio-wrap{
+    display: inline-block;
+}
+.item{
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 8px 15px;
+    display: inline-block;
+    color: #333333;
+}
+.active{
+    background: #1890FF;
+    color: white;
+}

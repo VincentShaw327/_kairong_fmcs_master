@@ -1,0 +1,14 @@
+.wrap{
+}
+.temp-table-wrap{
+    /* height: 1020px; */
+    margin: 25px 0;
+    /* overflow: scr; */
+}
+.temp-table-head{
+    font-size: 1.8rem;
+}
+.ant-table-tbody{
+    font-size: 1.5rem;
+
+}

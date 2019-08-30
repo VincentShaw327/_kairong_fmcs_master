@@ -1,0 +1,15 @@
+.ant-table-row.error{
+    background: #ff2222;
+    color: white;
+}
+.error:hover{
+    color: black;
+}
+
+.energy-header{
+    font-size: 1rem;
+}
+.energy-row{
+    font-size: 0.85rem;
+}
+
