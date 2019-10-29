@@ -17,3 +17,11 @@ ReactDOM.render(
     </Provider>,
     document.getElementById( 'root' ),
 )
+
+
+for (let i = 0; i < 5; i++) {
+    var fn=function (){
+        console.log(i)
+    }
+    setTimeout(fn,1000)
+}
