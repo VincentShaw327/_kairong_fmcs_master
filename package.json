@@ -64,7 +64,7 @@
     "postcss-loader": "~2.0.10",
     "progress-bar-webpack-plugin": "^1.11.0",
     "react-addons-test-utils": "~15.6.2",
-    "socket.io": "2.0.4",
+    "socket.io": "2.4.0",
     "spark-md5": "^3.0.0",
     "style-loader": "~0.23.1",
     "supervisor": "^0.12.0",
